@@ -1,0 +1,9 @@
+{
+  "userName": "yinwenlong",
+  "password": "251",
+  "host" : "47.101.210.58",
+  "port": "3306",
+  "datebase": "mysql",
+  "datebaseName":"hoteldata",
+  "otherSetting":"useSSL=false&useUnicode=true&characterEncoding=utf-8"
+}

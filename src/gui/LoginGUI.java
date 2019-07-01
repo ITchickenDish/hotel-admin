@@ -1,17 +1,17 @@
 package gui;
 
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
 
 
 public class LoginGUI extends 	JFrame{
 	public LoginGUI() {
-		super("登录");
+		super("鐧婚檰");
 		int width = Toolkit.getDefaultToolkit().getScreenSize().width;
-	    int height = Toolkit.getDefaultToolkit().getScreenSize().height;//获取屏幕的长宽
+	    int height = Toolkit.getDefaultToolkit().getScreenSize().height;
 		Container c =this.getContentPane();
 		c.setLayout(new BorderLayout());
-		JTextField username=new JTextField("用户名",30);
+		JTextField username=new JTextField("璐﹀彿",30);
 		JPasswordField password=new JPasswordField(30);
 		JPanel top = new JPanel();
 		Component box1 = Box.createVerticalStrut(100);
@@ -20,21 +20,21 @@ public class LoginGUI extends 	JFrame{
 		top.add(password);
 		c.add(top);
 		JPanel down = new JPanel();
-		JButton login = new JButton("登录");
-		JButton registered = new JButton("注册");
+		JButton login = new JButton("鐧婚檰");
+		JButton registered = new JButton("娉ㄥ唽");
 		Dimension preferredSize = new Dimension(60,30);
-		login.setPreferredSize(preferredSize );//设置按钮大小
+		login.setPreferredSize(preferredSize );
 		login.setPreferredSize(preferredSize);
 		down.add(login);
 		down.add(registered);
 		c.add(down,BorderLayout.SOUTH);
 		JPanel east = new JPanel();
 		this.pack();
-		this.setVisible(true);//窗体可见
+		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//this.setSize(600, 450);
-		this.setBounds((width - 600) / 2,(height - 500) / 2, 600, 500);//窗体大小，居中
-		this.setResizable(false);//禁止拉伸窗口，最大化
+		this.setBounds((width - 600) / 2,(height - 500) / 2, 600, 500);
+		this.setResizable(false);
 		
 	}
 	public static void main(String[] args) {
