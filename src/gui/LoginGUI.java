@@ -1,4 +1,4 @@
-package theDatabase.hotelAdmin.gui;
+package gui;
 
 import java.awt.*;
 import javax.swing.*;
