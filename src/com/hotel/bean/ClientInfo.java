@@ -1,4 +1,4 @@
-package bean;
+package com.hotel.bean;
 
 public class ClientInfo {
     private int clientID;
@@ -8,18 +8,19 @@ public class ClientInfo {
     private String clientIdent;
     private String clientAccount;
     private String clientKey;
+    private int clientRoomID;
     public ClientInfo(){
 
     }
 
- public ClientInfo(String clientName,String clientSex,String clientPhone,String clientIdent,String clientKey){
+ public ClientInfo(String clientName,String clientSex,String clientPhone,String clientIdent,String clientAccount,String clientKey){
         this.setClientName(clientName);
         this.setClientSex(clientSex);
         this.setClientPhone(clientPhone);
         this.setClientIdent(clientIdent);
         this.setClientAccount(clientAccount);
         this.setClientKey(clientKey);
-        clientID = -1;
+        //clientID = -1;
  }
 
 
@@ -30,6 +31,14 @@ public class ClientInfo {
 //    public void setClientID(int clientID) {
 //        this.clientID = clientID;
 //    }
+
+    public int getClientRoomID() {
+        return clientRoomID;
+    }
+
+    public void setClientRoomID(int clientRoomID) {
+        this.clientRoomID = clientRoomID;
+    }
 
     public String getClientName() {
         return clientName;

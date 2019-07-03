@@ -1,15 +1,15 @@
-package bean;
+package com.hotel.bean;
 
 public class RoomInfo {
     private int roomId;
     private  String roomStart;
     private  String roomDescribe;
-    private  String roomTypeId;
-    public RoomInfo(int roomId,String roomStart,String roomDescribe,String roomTypeId){
+    private  String roomType;
+    public RoomInfo(int roomId,String roomStart,String roomDescribe,String roomType){
             this.setRoomId(roomId);
             this.setRoomStart(roomStart);
             this.setRoomDescribe(roomDescribe);
-            this.setRoomTypeId(roomTypeId);
+            this.setRoomType(roomType);
     }
 
 
@@ -39,11 +39,11 @@ public class RoomInfo {
         this.roomDescribe = roomDescribe;
     }
 
-    public String getRoomTypeId() {
-        return roomTypeId;
+    public String getRoomType() {
+        return roomType;
     }
 
-    public void setRoomTypeId(String roomTypeId) {
-        this.roomTypeId = roomTypeId;
+    public void setRoomType(String roomTypeId) {
+        this.roomType = roomTypeId;
     }
 }

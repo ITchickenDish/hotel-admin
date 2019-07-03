@@ -1,4 +1,4 @@
-package gui;
+package com.hotel.gui;
 
 import javax.swing.*;
 
