@@ -1,8 +1,6 @@
 package com.hotel.dao;
-
 import com.hotel.bean.RoomInfo;
 import com.hotel.util.DBsql;
-
 import java.sql.Connection;
 import java.sql.*;
 import java.util.ArrayList;
@@ -42,16 +40,14 @@ public class RoomInfoDaoImpl implements RoomInfoDao{
     }
 
     @Override
-    public boolean updateRoomInfo(int roomId,int jude) throws Exception {
+    public boolean updateRoomInfo(int roomId,String update) throws Exception {
         boolean flag = false;
         Connection conn = DBsql.getConnection();
         String sql ="update room_info set room_info_state=? where room_info_id=?";
 
         PreparedStatement state = conn.prepareStatement(sql);
-        if(jude == 1){
-            state.setString(1,"已定");
+            state.setString(1,update);
             state.setInt(2,roomId);
-        }
         int result = state.executeUpdate();
         if(result == 1)
             flag = true;
@@ -60,11 +56,50 @@ public class RoomInfoDaoImpl implements RoomInfoDao{
     }
 
     @Override
-    public List<RoomInfo> searByType(String roomType) throws Exception {
+    public List<RoomInfo> searByroomId(int roomId) throws Exception {
         List<RoomInfo> result = new ArrayList<RoomInfo>();
         Connection connection = DBsql.getConnection();
         ResultSet rs;
-        PreparedStatement pst = connection.prepareStatement("selece *")
-        return null;
+        PreparedStatement pst = connection.prepareStatement("select room_info.*,roomtype_info.roomtype_info_price from room_info,roomtype_info where room_info.room_info_id = ? and room_info.room_info_type = roomtype_info.roomtype_info_name");
+        pst.setInt(1,roomId);
+        rs = pst.executeQuery();
+        while (rs.next()){
+            int roomid = rs.getInt(1);
+            String roomState = rs.getString(2);
+            String roomdescribe = rs.getString(3);
+            String roomTy = rs.getString(4);
+            String roomPrice = rs.getString(5);
+            RoomInfo roomInfo = new RoomInfo();
+            roomInfo.setRoomId(roomid);
+            roomInfo.setRoomStart(roomState);
+            roomInfo.setRoomDescribe(roomdescribe);
+            roomInfo.setRoomType(roomTy);
+            roomInfo.setPice(roomPrice);
+            result.add(roomInfo);
+        }
+        rs.close();
+        pst.close();
+        return result;
+    }
+
+    @Override
+    public List<RoomInfo> searchAll() throws Exception {
+        List<RoomInfo> result = new ArrayList<RoomInfo>();
+        Connection conn = DBsql.getConnection();
+        ResultSet rs;
+        Statement st = (Statement)conn.createStatement();
+        rs = st.executeQuery("select room_info.*,roomtype_info.roomtype_info_price from room_info,roomtype_info where room_info.room_info_type = roomtype_info.roomtype_info_name");
+        while (rs.next()){
+            RoomInfo a = new RoomInfo();
+            a.setRoomId(rs.getInt(1));
+            a.setRoomStart(rs.getString(2));
+            a.setRoomDescribe(rs.getString(3));
+            a.setRoomType(rs.getString(4));
+            a.setPice(rs.getString(5));
+            result.add(a);
+        }
+        rs.close();
+        st.close();
+        return result;
     }
 }

@@ -5,15 +5,24 @@ public class RoomInfo {
     private  String roomStart;
     private  String roomDescribe;
     private  String roomType;
+    private  String pice;
     public RoomInfo(int roomId,String roomStart,String roomDescribe,String roomType){
             this.setRoomId(roomId);
             this.setRoomStart(roomStart);
             this.setRoomDescribe(roomDescribe);
             this.setRoomType(roomType);
     }
+public RoomInfo(){
 
+}
 
+    public String getPice() {
+        return pice;
+    }
 
+    public void setPice(String pice) {
+        this.pice = pice;
+    }
 
     public int getRoomId() {
         return roomId;
@@ -45,5 +54,15 @@ public class RoomInfo {
 
     public void setRoomType(String roomTypeId) {
         this.roomType = roomTypeId;
+    }
+
+    @Override
+    public String toString() {
+        return
+                roomId +
+                "," + roomStart+
+                "," + roomDescribe +
+                "," + roomType +
+                "," + pice;
     }
 }

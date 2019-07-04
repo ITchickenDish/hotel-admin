@@ -1,7 +1,7 @@
 package com.hotel.bean;
 
 public class ClientInfo {
-    private int clientID;
+    private String clientID;
     private String clientName;
     private String clientSex;
     private String clientPhone;
@@ -13,7 +13,11 @@ public class ClientInfo {
 
     }
 
- public ClientInfo(String clientName,String clientSex,String clientPhone,String clientIdent,String clientAccount,String clientKey){
+    public String getClientID() {
+        return clientID;
+    }
+
+    public ClientInfo(String clientName, String clientSex, String clientPhone, String clientIdent, String clientAccount, String clientKey){
         this.setClientName(clientName);
         this.setClientSex(clientSex);
         this.setClientPhone(clientPhone);
@@ -24,9 +28,6 @@ public class ClientInfo {
  }
 
 
-    public int getClientID() {
-        return clientID;
-    }
 
 //    public void setClientID(int clientID) {
 //        this.clientID = clientID;

@@ -11,7 +11,9 @@ public interface RoomInfoDao {
     //删除房间信息
     boolean deleteRoomInfo(int roomId)throws Exception;
     //修改房间信息
-    boolean updateRoomInfo(int roomId,int jude)throws  Exception;
+    boolean updateRoomInfo(int roomId,String update)throws  Exception;
     //按照类型搜索房间
-    List<RoomInfo>searByType(String roomType)throws Exception;
+    List<RoomInfo>searByroomId(int roomId)throws Exception;
+    //全部客房
+    List<RoomInfo>searchAll()throws Exception;
 }
